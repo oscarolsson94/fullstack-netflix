@@ -1,7 +1,7 @@
 import "./listItem.scss";
 
 const ListItem = () => {
-  return <div></div>;
+  return <div className="listItem">item</div>;
 };
 
 export default ListItem;

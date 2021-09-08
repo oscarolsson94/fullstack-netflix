@@ -4,8 +4,13 @@ import {
 } from "@material-ui/icons";
 import "./list.scss";
 import ListItem from "../listItem/ListItem";
+import { useRef, useState } from "react";
 
 const List = () => {
+  const [isMoved, setIsMoved] = useState(false);
+  const [slideNumber, setSlideNumber] = useState(0);
+
+  const listRef = useRef();
   return (
     <div className="list">
       <span className="listTitle">Continue to watch</span>
