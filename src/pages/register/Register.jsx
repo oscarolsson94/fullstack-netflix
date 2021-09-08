@@ -44,7 +44,7 @@ const Register = () => {
           <form className="input">
             <input type="password" placeholder="password" ref={passwordRef} />
             <button className="registerButton" onClick={handleFinish}>
-              Start
+              Start Membership
             </button>
           </form>
         )}
