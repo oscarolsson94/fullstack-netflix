@@ -1,12 +1,16 @@
-import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@material-ui/icons";
+import {
+  ArrowBackIosOutlined,
+  ArrowForwardIosOutlined,
+} from "@material-ui/icons";
 import "./list.scss";
+import ListItem from "../listItem/ListItem";
 
 const List = () => {
   return (
     <div className="list">
       <span className="listTitle">Continue to watch</span>
-        <div className="wrapper">
-            <ArrowBackIosOutlined
+      <div className="wrapper">
+        <ArrowBackIosOutlined
           className="sliderArrow left"
           onClick={() => handleClick("left")}
           style={{ display: !isMoved && "none" }}
@@ -28,7 +32,6 @@ const List = () => {
           onClick={() => handleClick("right")}
         />
       </div>
-        </div>
     </div>
   );
 };
