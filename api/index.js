@@ -13,7 +13,7 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then(() => console.log("DB Connection Successfull"))
+  .then(() => console.log("DB Connection Successful"))
   .catch((err) => {
     console.error(err);
   });
