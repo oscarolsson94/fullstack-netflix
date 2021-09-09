@@ -19,3 +19,5 @@ router.post("/", verify, async (req, res) => {
     res.status(403).json("You are not allowed to create a new movie!");
   }
 });
+
+export default router;
