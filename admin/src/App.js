@@ -9,8 +9,40 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+  const MONTHS = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const [userStats, setUserStats] = useState([]);
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const res = await axios.get("/users/stats", {
+          headers: { token: "Bearer ......." },
+        });
+        setUserStats(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getStats();
+  }, []);
   return (
     <Router>
       <Topbar />
