@@ -93,7 +93,7 @@ router.get("/", verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
       const movies = await Movie.find();
-      res.status(200).json(movies.reverse());
+      res.status(200).json(movies.reverse()); //get most recent movies first
     } catch (err) {
       res.status(500).json(err);
     }
