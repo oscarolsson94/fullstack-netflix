@@ -12,10 +12,7 @@ const PORT = process.env.PORT;
 const app = express();
 
 mongoose
-  .connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URL)
   .then(() => console.log("DB Connection Successful"))
   .catch((err) => {
     console.error(err);
