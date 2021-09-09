@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
 import moviesRoutes from "./routes/movies.js";
+import listsRoutes from "./routes/lists.js";
 
 dotenv.config();
 
@@ -27,6 +28,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 
 app.use("/api/movies", moviesRoutes);
+
+app.use("/api/lists", listsRoutes);
 
 app.listen(PORT, () => {
   console.log(`Backend running on port ${PORT}`);
