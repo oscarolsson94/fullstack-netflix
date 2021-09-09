@@ -18,7 +18,9 @@ const Navbar = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <span>Homepage</span>
+          <Link to="/" className="link">
+            <span>Homepage</span>
+          </Link>
           <Link to="/series" className="link">
             <span>Series</span>
           </Link>
