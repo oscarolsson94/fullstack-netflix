@@ -10,7 +10,10 @@ export default function WidgetSm() {
     const getNewUsers = async () => {
       try {
         const res = await axios.get("/users?new=true", {
-          headers: { token: "Bearer ......." },
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
         });
         setNewUsers(res.data);
       } catch (error) {
