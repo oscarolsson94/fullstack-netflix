@@ -14,15 +14,15 @@ import Login from "./pages/login/Login";
 function App() {
   return (
     <Router>
-      <Topbar />
-      <div className="container">
-        <Sidebar />
-        <Switch>
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Topbar />
+        <div className="container">
+          <Sidebar />
           <Route exact path="/">
             <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
           </Route>
           <Route path="/users">
             <UserList />
@@ -42,8 +42,8 @@ function App() {
           <Route path="/newproduct">
             <NewProduct />
           </Route>
-        </Switch>
-      </div>
+        </div>
+      </Switch>
     </Router>
   );
 }
