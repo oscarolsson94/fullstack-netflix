@@ -9,49 +9,8 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
-import { useEffect, useMemo, useState } from "react";
-import axios from "axios";
 
 function App() {
-  const MONTHS = useMemo(
-    () => [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    []
-  );
-
-  const [userStats, setUserStats] = useState([]);
-
-  useEffect(() => {
-    const getStats = async () => {
-      try {
-        const res = await axios.get("/users/stats", {
-          headers: { token: "Bearer ......." },
-        });
-        res.data.map(
-          (item) =>
-            setUserStats((prev) => [
-              ...prev,
-              { name: MONTHS[item._id - 1], "New Users": item.total },
-            ]) /* Mapping in MONTHS array into userStats */
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getStats();
-  }, [MONTHS]);
   return (
     <Router>
       <Topbar />
