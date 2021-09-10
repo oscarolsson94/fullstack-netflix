@@ -31,12 +31,15 @@ export default function Home() {
     const getStats = async () => {
       try {
         const res = await axios.get("/users/stats", {
-          headers: { token: "Bearer ......." },
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
         });
         const statsList = res.data.sort(function (a, b) {
           return a._id - b._id;
         });
-        res.data.map(
+        statsList.map(
           (item) =>
             setUserStats((prev) => [
               ...prev,
