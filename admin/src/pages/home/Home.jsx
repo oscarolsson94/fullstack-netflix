@@ -1,7 +1,6 @@
 import Chart from "../../components/chart/Chart";
 import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import "./home.css";
-import { userData } from "../../dummyData";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { useEffect, useMemo, useState } from "react";
@@ -34,11 +33,14 @@ export default function Home() {
         const res = await axios.get("/users/stats", {
           headers: { token: "Bearer ......." },
         });
+        const statsList = res.data.sort(function (a, b) {
+          return a._id - b._id;
+        });
         res.data.map(
           (item) =>
             setUserStats((prev) => [
               ...prev,
-              { name: MONTHS[item._id - 1], "New Users": item.total },
+              { name: MONTHS[item._id - 1], "New User": item.total },
             ]) /* Mapping in MONTHS array into userStats */
         );
       } catch (error) {
@@ -47,15 +49,11 @@ export default function Home() {
     };
     getStats();
   }, [MONTHS]);
+
   return (
     <div className="home">
       <FeaturedInfo />
-      <Chart
-        data={userData}
-        title="User Analytics"
-        grid
-        dataKey="Active User"
-      />
+      <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSm />
         <WidgetLg />
