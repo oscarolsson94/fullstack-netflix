@@ -2,11 +2,14 @@ import "./newUser.css";
 import { useContext, useState } from "react";
 import { createUser } from "../../context/userContext/apiCalls";
 import { UserContext } from "../../context/userContext/UserContext";
+import { useHistory } from "react-router";
 
 export default function NewUser() {
   const [user, setUser] = useState(null);
 
   const { dispatch } = useContext(UserContext);
+
+  const history = useHistory();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -16,6 +19,7 @@ export default function NewUser() {
   const handleSubmit = (e) => {
     e.preventDefault();
     createUser(user, dispatch);
+    history.push("/users");
   };
 
   return (
@@ -32,6 +36,15 @@ export default function NewUser() {
           />
         </div>
         <div className="addProductItem">
+          <label>Username</label>
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
           <label>Password</label>
           <input
             type="password"
@@ -40,6 +53,7 @@ export default function NewUser() {
             onChange={handleChange}
           />
         </div>
+
         <button className="addProductButton" onClick={handleSubmit}>
           Create
         </button>
