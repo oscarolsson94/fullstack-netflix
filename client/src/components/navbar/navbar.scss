@@ -58,6 +58,22 @@
         cursor: pointer;
       }
 
+      .iconHide {
+        @include tablet {
+          display: none;
+        }
+      }
+
+      span {
+        cursor: pointer;
+
+        &.navbarmainLinks {
+          @include tablet {
+            display: block;
+          }
+        }
+      }
+
       img {
         width: 30px;
         height: 30px;

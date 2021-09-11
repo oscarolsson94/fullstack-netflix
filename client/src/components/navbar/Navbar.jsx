@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, user } = useContext(AuthContext);
   const history = useHistory();
 
   window.onscroll = () => {
@@ -41,8 +41,13 @@ const Navbar = () => {
           <span>My List</span>
         </div>
         <div className="right">
-          <Search className="icon" />
-          <span>KID</span>
+          {user.isAdmin && (
+            <a href={process.env.ADMIN_URL} className="link">
+              <span className="navbarmainLinks">Admin</span>
+            </a>
+          )}
+          <Search className="icon iconHide" />
+          <span className="iconHide">KID</span>
           <Notifications className="icon" />
           <img
             src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
