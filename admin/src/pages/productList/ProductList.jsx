@@ -46,7 +46,7 @@ export default function ProductList() {
           <>
             <Link
               to={{
-                pathname: "/product/" + params.row._id,
+                pathname: "/movie/" + params.row._id,
                 movie: params.row,
               }}
             >
@@ -64,6 +64,9 @@ export default function ProductList() {
 
   return (
     <div className="productList">
+      <Link to="/newMovie">
+        <button className="productAddButton">Create</button>
+      </Link>
       <DataGrid
         rows={movies}
         disableSelectionOnClick
