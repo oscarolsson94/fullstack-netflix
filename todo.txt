@@ -1,0 +1,4 @@
+Fix:
+
+Title image
+Update functionality and page layout
