@@ -42,7 +42,12 @@ const Navbar = () => {
         </div>
         <div className="right">
           {user.isAdmin && (
-            <a href={process.env.ADMIN_URL} className="link">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="http://localhost:4000/"
+              className="link"
+            >
               <span className="navbarmainLinks">Admin</span>
             </a>
           )}
