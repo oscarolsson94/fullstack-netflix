@@ -32,11 +32,13 @@ export default function Login() {
           <input
             type="email"
             placeholder="Email"
+            name="email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Password"
+            name="password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="loginButton" onClick={handleLogin}>
