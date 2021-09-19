@@ -5,6 +5,7 @@ import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
 import moviesRoutes from "./routes/movies.js";
 import listsRoutes from "./routes/lists.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ mongoose
   .catch((err) => {
     console.error(err);
   });
+
+app(cors());
 
 app.use(express.json());
 
