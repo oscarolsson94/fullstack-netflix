@@ -1,6 +1,5 @@
 Fix:
 
--Title image
 -Update movies/users/lists functionality and page layout
 -Change admin page to show number of users, movies and lists instead of sales info
 
