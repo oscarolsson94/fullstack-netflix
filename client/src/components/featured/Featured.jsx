@@ -22,16 +22,20 @@ const Featured = ({ type, setGenre }) => {
     };
     getRandomContent();
   }, [type]);
+
+  const handleGenre = (e) => {
+    if (e.target.value === "Genre") {
+      setGenre(null);
+    } else {
+      setGenre(e.target.value);
+    }
+  };
   return (
     <div className="featured">
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select
-            name="genre"
-            id="genre"
-            onChange={(e) => setGenre(e.target.value)}
-          >
+          <select name="genre" id="genre" onChange={handleGenre}>
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
