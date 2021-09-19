@@ -6,6 +6,13 @@
   overflow: hidden;
   cursor: pointer;
   color: white;
+  span {
+    margin-right: 5px;
+  }
+
+  .title {
+    margin-bottom: 2px;
+  }
 
   img {
     width: 100%;
@@ -70,11 +77,6 @@
       .desc {
         font-size: 13px;
         margin-bottom: 10px;
-      }
-
-      .genre {
-        font-size: 14px;
-        color: lightgray;
       }
     }
   }
