@@ -19,7 +19,7 @@ mongoose
     console.error(err);
   });
 
-/* app(cors()); */
+app.use(cors());
 
 app.use(express.json());
 
