@@ -13,6 +13,10 @@ const Register = () => {
   const passwordRef = useRef();
   const usernameRef = useRef();
 
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_ADMIN_URL,
+  });
+
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
@@ -21,7 +25,7 @@ const Register = () => {
     setPassword(passwordRef.current.value);
     setUsername(usernameRef.current.value);
     try {
-      await axios.post("auth/register", { email, username, password });
+      await axiosInstance.post("auth/register", { email, username, password });
       history.push("/login");
     } catch (error) {
       console.log(error);

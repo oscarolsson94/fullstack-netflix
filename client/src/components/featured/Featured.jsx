@@ -6,10 +6,14 @@ import axios from "axios";
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
 
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_ADMIN_URL,
+  });
+
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
+        const res = await axiosInstance.get(`/movies/random?type=${type}`, {
           headers: {
             token:
               "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
@@ -21,7 +25,7 @@ const Featured = ({ type, setGenre }) => {
       }
     };
     getRandomContent();
-  }, [type]);
+  }, [axiosInstance, type]);
 
   const handleGenre = (e) => {
     if (e.target.value === "Genre") {
