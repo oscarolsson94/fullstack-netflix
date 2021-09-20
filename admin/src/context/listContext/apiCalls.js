@@ -11,10 +11,14 @@ import {
   getListsSuccess,
 } from "./ListActions";
 
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_ADMIN_URL,
+});
+
 export const getLists = async (dispatch) => {
   dispatch(getListsStart());
   try {
-    const res = await axios.get("/lists", {
+    const res = await axiosInstance.get("/lists", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

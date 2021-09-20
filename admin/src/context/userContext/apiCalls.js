@@ -11,10 +11,14 @@ import {
   getUsersSuccess,
 } from "./UserActions";
 
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_ADMIN_URL,
+});
+
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
   try {
-    const res = await axios.get("/users", {
+    const res = await axiosInstance.get("/users", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

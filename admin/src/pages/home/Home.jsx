@@ -25,12 +25,16 @@ export default function Home() {
     []
   );
 
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_ADMIN_URL,
+  });
+
   const [userStats, setUserStats] = useState([]);
 
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await axios.get("/users/stats", {
+        const res = await axiosInstance.get("/users/stats", {
           headers: {
             token:
               "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
@@ -51,7 +55,7 @@ export default function Home() {
       }
     };
     getStats();
-  }, [MONTHS]);
+  }, [MONTHS, axiosInstance]);
 
   return (
     <div className="home">

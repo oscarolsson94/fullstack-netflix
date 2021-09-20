@@ -11,10 +11,14 @@ import {
   getMoviesSuccess,
 } from "./MovieActions";
 
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_ADMIN_URL,
+});
+
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
   try {
-    const res = await axios.get("/movies", {
+    const res = await axiosInstance.get("/movies", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
